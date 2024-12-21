@@ -1,0 +1,176 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:400,800');
+
+* {
+    box-sizing: border-box;
+}
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-family: 'Montserrat', sans-serif;
+    background: #02062f; 
+    min-height: 100vh;
+}
+.container {
+    position: relative;
+    width: 768px;
+    max-width: 100%;
+    min-height: 480px;
+    background-color: #0b8867; 
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+    transition: all 0.6s ease-in-out;
+}
+.sign-up, .log-in {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 50%;
+    transition: all 0.6s ease-in-out;
+    z-index: 1;
+    opacity: 0;
+}
+.log-in {
+    z-index: 2;
+    opacity: 1;
+}
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding: 0 50px;
+    text-align: center;
+    background: #454645; 
+}
+h1 {
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #ffffff; 
+}
+p {
+    font-size: 14px;
+    font-weight: 100;
+    line-height: 20px;
+    letter-spacing: 0.5px;
+    margin: 15px 0 20px;
+    color: #b0b0b0; 
+}
+input {
+    width: 100%;
+    padding: 12px 15px;
+    margin: 8px 0;
+    background: #3B3B3B; 
+    border: none;
+    border-radius: 5px;
+    outline: none;
+    color: #FFF; 
+}
+button {
+    padding: 12px 55px;
+    margin: 20px 0;
+    font-size: 12px;
+    font-weight: bold;
+    color: #FFF;
+    background-color: #006994; 
+    border: 1px solid #006994;
+    border-radius: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+}
+button:hover {
+    background-color: #004f6d; 
+}
+button:active {
+    transform: scale(0.95);
+}
+#signUp, #logIn {
+    background-color: transparent;
+    border: 2px solid #FFF; 
+    color: #FFF; 
+}
+.container.right-panel-active .sign-up {
+    transform: translateX(100%);
+    opacity: 1;
+    z-index: 5;
+}
+.container.right-panel-active .log-in {
+    transform: translateX(100%);
+    opacity: 0;
+    z-index: 1;
+}
+.overlay-container {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+    transition: transform 0.6s ease-in-out;
+    z-index: 100;
+}
+.container.right-panel-active .overlay-container {
+    transform: translateX(-100%);
+}
+.overlay {
+    position: relative;
+    left: -100%;
+    height: 100%;
+    width: 200%;
+    background: linear-gradient(to right, #0026ff, #24f109); 
+    color: #FFF; 
+    transform: translateX(0);
+    transition: transform 0.6s ease-in-out;
+}
+.container.right-panel-active .overlay {
+    transform: translateX(50%);
+}
+.overlay-left, .overlay-right {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 40px;
+    transition: transform 0.6s ease-in-out;
+}
+.overlay-left {
+    transform: translateX(-20%);
+}
+.container.right-panel-active .overlay-left {
+    transform: translateX(0);
+}
+.overlay-right {
+    right: 0;
+    transform: translateX(0);
+}
+.checkbox-container {
+    padding-top: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 100px;
+}
+input[type="checkbox"] {
+    margin: 0;
+    margin-right: 8px;
+    width: 16px;
+    height: 16px;
+    accent-color: #006994; 
+}
+label {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    color: #1abc9c; 
+}

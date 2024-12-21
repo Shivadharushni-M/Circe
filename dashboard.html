@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CIRCE</title>
+    <link rel="stylesheet" href="dashboard.css">
+    <style>
+        /* Pop-up chat styles */
+        .chat-popup {
+            display: none;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 400px;
+            height: 600px;
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            border-radius: 10px;
+            z-index: 1000;
+        }
+        
+        .open-chat-btn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            padding: 10px 20px;
+            background-color: #075e54;
+            color: white;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            z-index: 999;
+        }
+
+        .open-chat-btn:hover {
+            background-color: #054d44;
+        }
+
+        /* Hide chat when closed */
+        .close-chat-btn {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #ff5c5c;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            padding: 5px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <h1>Circe</h1>
+        <div class="user-info">
+            <span id="username"></span>
+            <button id="logoutBtn">Logout</button>
+        </div>
+    </nav>
+
+    <div class="dashboard-container">
+        <div class="mood-input-section">
+            <h2>How are you feeling today?</h2>
+            <div class="mood-icons">
+                <button class="mood-btn" data-mood="happy">😊 Happy</button>
+                <button class="mood-btn" data-mood="sad">😢 Sad</button>
+                <button class="mood-btn" data-mood="angry">😠 Angry</button>
+                <button class="mood-btn" data-mood="anxious">😰 Anxious</button>
+                <button class="mood-btn" data-mood="neutral">😐 Neutral</button>
+            </div>
+            <textarea id="moodNote" placeholder="Add a note about your mood (optional)"></textarea>
+            <button id="submitMood">Log Mood</button>
+        </div>
+
+        <div class="mood-history">
+            <h2>Recent Entries</h2>
+            <div id="moodEntries"></div>
+        </div>
+
+        <div class="stats-container">
+            <div class="stat-card">
+                <h3>Total Entries</h3>
+                <p>0</p>
+            </div>
+            <div class="stat-card">
+                <h3>Happy Entries</h3>
+                <p>0</p>
+            </div>
+            <div class="stat-card">
+                <h3>Sad Entries</h3>
+                <p>0</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Open Chat Button -->
+    <button class="open-chat-btn" onclick="openChat()">Open Chatbot</button>
+
+    <!-- Chatbot Pop-up -->
+    <div class="chat-popup" id="chatPopup">
+        <button class="close-chat-btn" onclick="closeChat()">X</button>
+        <iframe src="chatbot.html" width="100%" height="100%" frameborder="0"></iframe>
+    </div>
+
+    <script src="dashboard.js"></script>
+    <script>
+        // Open the chatbot pop-up
+        function openChat() {
+            document.getElementById('chatPopup').style.display = 'block';
+        }
+
+        // Close the chatbot pop-up
+        function closeChat() {
+            document.getElementById('chatPopup').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
