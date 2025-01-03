@@ -42,7 +42,7 @@ signUpForm.addEventListener("submit", (e) => {
     localStorage.setItem("users", JSON.stringify(users));
     alert("Account created successfully! Please log in.");
     signUpForm.reset();
-    main.classList.remove("right-panel-active"); // Switch to login panel after successful signup
+    main.classList.remove("right-panel-active"); 
 });
 
 const logInForm = document.querySelector(".log-in form");
@@ -63,7 +63,7 @@ logInForm.addEventListener("submit", (e) => {
     if (currentUser) {
         localStorage.setItem("currentUser", JSON.stringify(currentUser));
         alert(`Welcome back, ${currentUser.userName}!`);
-        window.location.href = "dashboard.html";  // Changed from home.html to dashboard.html
+        window.location.href = "dashboard.html"; 
     } else {
         alert("Invalid email or password! Please try again.");
     }

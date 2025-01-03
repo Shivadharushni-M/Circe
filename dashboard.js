@@ -3,22 +3,22 @@ if (!currentUser) {
     window.location.href = "login.html";
 }
 
-// Display username
+
 document.getElementById("username").textContent = `Welcome, ${currentUser.userName}`;
 
-// Logout functionality
+
 document.getElementById("logoutBtn").addEventListener("click", () => {
     localStorage.removeItem("currentUser");
     window.location.href = "login.html";
 });
 
-// Mood tracking functionality
+
 let selectedMood = null;
 const moodButtons = document.querySelectorAll(".mood-btn");
 const moodNote = document.getElementById("moodNote");
 const submitMoodBtn = document.getElementById("submitMood");
 
-// Mood selection
+
 moodButtons.forEach(btn => {
     btn.addEventListener("click", () => {
         moodButtons.forEach(b => b.classList.remove("selected"));
@@ -27,7 +27,7 @@ moodButtons.forEach(btn => {
     });
 });
 
-// Submit mood entry
+
 submitMoodBtn.addEventListener("click", () => {
     if (!selectedMood) {
         alert("Please select a mood!");
@@ -45,18 +45,17 @@ submitMoodBtn.addEventListener("click", () => {
     moodEntries.push(moodEntry);
     localStorage.setItem("moodEntries", JSON.stringify(moodEntries));
 
-    // Reset form
+  
     moodButtons.forEach(btn => btn.classList.remove("selected"));
     moodNote.value = "";
     selectedMood = null;
 
-    // Update display
+    
     updateMoodHistory();
     updateMoodStats();
     alert("Mood logged successfully!");
 });
 
-// Display mood history
 function updateMoodHistory() {
     const moodEntries = JSON.parse(localStorage.getItem("moodEntries")) || [];
     const userEntries = moodEntries

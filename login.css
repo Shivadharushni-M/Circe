@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:400,800');
 
-* {
+*{
     box-sizing: border-box;
 }
 body {
@@ -154,7 +154,7 @@ button:active {
     right: 0;
     transform: translateX(0);
 }
-.checkbox-container {
+/* .checkbox-container {
     padding-top: 10px;
     display: flex;
     align-items: center;
@@ -172,5 +172,5 @@ label {
     display: flex;
     align-items: center;
     font-size: 14px;
-    color: #1abc9c; 
-}
+    color: #e06315; 
+} */

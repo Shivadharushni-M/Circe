@@ -111,10 +111,7 @@
         .typing-dot:nth-child(2) { animation-delay: 300ms; }
         .typing-dot:nth-child(3) { animation-delay: 400ms; }
 
-        @keyframes typing {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-5px); }
-        }
+      
     </style>
 </head>
 <body>
@@ -153,11 +150,10 @@
             const message = userInput.value.trim();
             if (!message) return;
 
-            // Add user message to chat
+            
             addMessage(message, 'user');
             userInput.value = '';
 
-            // Show typing indicator
             typingIndicator.style.display = 'block';
 
             try {
@@ -185,16 +181,15 @@
 
             const data = await response.json();
             
-            // Log the response to the console for debugging
-            console.log('API Response:', data);  // Check the structure in the browser console
-
-            // Check the structure of the response and return the message
+            
+            console.log('API Response:', data);  
+            
             if (data && data.generated_text) {
-                return data.generated_text;  // If the structure has 'generated_text'
+                return data.generated_text; 
             } else if (data[0] && data[0].generated_text) {
-                return data[0].generated_text;  // If it's nested in an array
+                return data[0].generated_text;  
             } else {
-                return 'Sorry, I couldn\'t understand that.';  // Fallback message
+                return 'Sorry, I couldn\'t understand that.'; 
             }
         }
 
